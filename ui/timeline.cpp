@@ -5,15 +5,14 @@
 #include <QStyle>
 #include <QScrollArea>
 #include <QSplitter>
+#include <utility/style.h>
 
 Timeline::Timeline(QWidget *parent) : QWidget(parent)
 {
-    setObjectName(QString::fromUtf8("timeline"));
     setAttribute(Qt::WA_StyledBackground, true);
-    setStyleSheet(QString::fromUtf8("background-color: rgb(35, 35, 35);"));
+    setStyleSheet(Style::Panel());
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->setSpacing(0);
-    layout->setObjectName(QString::fromUtf8("verticalLayout_5"));
     layout->setContentsMargins(0, 0, 0, 0);
 
     QScrollArea* sequenceContainer = new QScrollArea(this);
@@ -24,7 +23,7 @@ Timeline::Timeline(QWidget *parent) : QWidget(parent)
     splitter->setLineWidth(4);
     splitter->setOrientation(Qt::Horizontal);
     splitter->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
-    splitter->setStyleSheet(QString::fromUtf8("background-color: rgb(22, 22, 22);"));
+    splitter->setStyleSheet(Style::Background());
 
     QWidget* layerInfo = new QWidget(splitter);
     layerInfo->setMinimumSize(QSize(300, 250));

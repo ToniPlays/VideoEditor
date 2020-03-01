@@ -255,7 +255,7 @@ color: rgb(185, 185, 185);</string>
                      <string notr="true">background-color: rgb(35, 35, 35);</string>
                     </property>
                    </widget>
-                   <widget class="QWidget" name="ProjectFiles" native="true">
+                   <widget class="ItemViewer" name="ProjectFiles" native="true">
                     <property name="styleSheet">
                      <string notr="true">background-color: rgb(35, 35, 35);</string>
                     </property>
@@ -696,6 +696,12 @@ background-color: rgb(22, 22, 22);</string>
    <class>Timeline</class>
    <extends>QWidget</extends>
    <header>ui/timeline.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ItemViewer</class>
+   <extends>QWidget</extends>
+   <header>ui/itemviewer.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

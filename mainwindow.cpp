@@ -19,7 +19,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     PreviewWindow* previewWindow = new PreviewWindow(timeline->sequence);
     ui->splitter->addWidget(previewWindow);
     SetTitle("Ready");
-
 }
 
 MainWindow::~MainWindow()
@@ -35,24 +34,28 @@ void MainWindow::OpenTab(int tab) {
 
 void MainWindow::on_actionFile_triggered()
 {
-    QString path;
-    if(!FileUtils::OpenFile(path)) return;
-    qDebug() << "End is here";
+    QStringList files;
+    if(!FileUtils::OpenFiles(files)) return;
+    qDebug() << "End is here " << files;
 }
 
 void MainWindow::on_actionNew_triggered()
 {
     QString path;
     if(!FileUtils::OpenFile(path)) return;
-    qDebug() << "End is here";
+    qDebug() << "End is here " << path;
 }
 
 void MainWindow::on_AssemblyBtn_clicked() { OpenTab(0); }
 void MainWindow::on_TimelineBtn_clicked() { OpenTab(1); }
 void MainWindow::on_RenderBtn_clicked() { OpenTab(2); }
 void MainWindow::on_ConsoleBtn_clicked() { OpenTab(3); }
+void MainWindow::on_actionExit_triggered() { ProjectManager::SaveAndClose(); }
 
-void MainWindow::on_actionExit_triggered()
+void MainWindow::on_actionDirectory_triggered()
 {
-    ProjectManager::SaveAndClose();
+    QString path;
+    if(!FileUtils::OpenDirectory(path)) return;
+    qDebug() << "End is here " << path;
+
 }

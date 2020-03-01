@@ -7,11 +7,15 @@ InitializationProcess::InitializationProcess()
     qDebug() << "System threads " << thread()->idealThreadCount();
 }
 void InitializationProcess::run() {
-    QStringList items (QStringList() << "Effects" << "Transitions" << "Algorithms" << "Renderer" << "Audio" << "Interface" << "Finishing");
-
+    QStringList items (QStringList() << "Initializing" << "Effects" << "Transitions" << "Algorithms" <<
+                       "Renderer" << "Audio" << "Interface" << "Finishing");
+    int j = 0;
     for(int i = 0; i < items.length(); i++) {
-        emit Progress(items[i], float(i) / float(items.length()));
-        thread()->msleep(300);
+        while(j <= i * float(100) / float(items.length() - 1)) {
+            emit Progress(items[i], float(j) / float(100));
+            thread()->msleep(25);
+            j++;
+        }
     }
 
     emit Progress("Main", 1);

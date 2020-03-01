@@ -3,11 +3,12 @@
 #include <QLabel>
 #include <QDebug>
 #include <QSlider>
+#include <utility/style.h>
 
 PreviewWindow::PreviewWindow(Sequence* sequence) {
 
     setMinimumSize(QSize(0, 250));
-    setStyleSheet(QString::fromUtf8("background-color: rgb(35, 35, 35);"));
+    setStyleSheet(Style::Panel());
     QVBoxLayout* vLayout = new QVBoxLayout(this);
     vLayout->setSpacing(0);
     vLayout->setContentsMargins(0, 0, 0, 0);

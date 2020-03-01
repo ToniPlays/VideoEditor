@@ -17,6 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     appsplash.cpp \
+    ui/flowlayout.cpp \
+    ui/itemviewer.cpp \
     ui/previewwindow.cpp \
     interface/process/initializationprocess.cpp \
     interface/projectmanager.cpp \
@@ -27,10 +29,13 @@ SOURCES += \
     ui/uicontroller.cpp \
     utility/fileutils.cpp \
     utility/sequence.cpp \
-    utility/settingsmanager.cpp
+    utility/settingsmanager.cpp \
+    utility/style.cpp
 
 HEADERS += \
     appsplash.h \
+    ui/flowlayout.h \
+    ui/itemviewer.h \
     ui/previewwindow.h \
     interface/process/initializationprocess.h \
     interface/projectmanager.h \
@@ -40,7 +45,8 @@ HEADERS += \
     ui/uicontroller.h \
     utility/fileutils.h \
     utility/sequence.h \
-    utility/settingsmanager.h
+    utility/settingsmanager.h \
+    utility/style.h
 
 FORMS += \
     ui/AppSplash.ui \
